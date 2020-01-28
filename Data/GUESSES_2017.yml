@@ -1,0 +1,47 @@
+..generic:
+  git2rdata: 0.2.0
+  optimize: yes
+  NA string: NA
+  sorting:
+  - PIRATEID
+  - PICK
+  hash: 2d0be5cc8f56ae2baf05ca221a1c0b99a75b8d3f
+  data_hash: c5fbca7e2150518be858932ec8f184c7a521430a
+PIRATE:
+  class: factor
+  labels:
+  - Eric
+  - Javi
+  - Joe
+  - Keyla
+  - Nick
+  - Paddy
+  - Pat
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  ordered: no
+PIRATEID:
+  class: integer
+YEAR:
+  class: integer
+PICK:
+  class: integer
+GUESSID:
+  class: integer
+GUESS:
+  class: factor
+  labels:
+  - DEF
+  - 'OFF'
+  index:
+  - 1
+  - 2
+  ordered: no
+GUESSN:
+  class: integer
