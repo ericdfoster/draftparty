@@ -1,0 +1,63 @@
+..generic:
+  git2rdata: 0.2.0
+  optimize: yes
+  NA string: NA
+  sorting: PIRATEID
+  hash: 3ce665a329edf5efa83eefab638bbce4b7cf5e41
+  data_hash: 67b9f9eeb037d1e9da8e6837ae0f1bb5cdf14a57
+PIRATE:
+  class: factor
+  labels:
+  - Ben
+  - Brandon
+  - Daren
+  - Eric
+  - Javi
+  - Jill
+  - Joe
+  - Keyla
+  - Lizzy
+  - Nick
+  - Paddy
+  - Pat
+  - Ryan
+  - Ryan Miller
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  ordered: no
+PIRATEID:
+  class: integer
+FAVORITE:
+  class: factor
+  labels:
+  - Bears
+  - Bengals
+  - Bills
+  - Giants
+  - Packers
+  - Rams
+  - Texans
+  - Vikings
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  ordered: no
