@@ -1,0 +1,287 @@
+..generic:
+  git2rdata: 0.2.0
+  optimize: yes
+  NA string: NA
+  sorting: PICK
+  hash: f343a80b1c2f29b3f6693d2f73700336da7d8086
+  data_hash: bac0f1313ba728f2147a84095b07db2084d75ffe
+YEAR:
+  class: integer
+PICK:
+  class: integer
+TEAM:
+  class: factor
+  labels:
+  - 49ers
+  - Bears
+  - Bengals
+  - Bills
+  - Broncos
+  - Browns
+  - Bucs
+  - Cardinals
+  - Chargers
+  - Chiefs
+  - Colts
+  - Cowboys
+  - Dolphins
+  - Eagles
+  - Falcons
+  - Giants
+  - Jaguars
+  - Jets
+  - Lions
+  - Panthers
+  - Raiders
+  - Ravens
+  - Redskins
+  - Saints
+  - Steelers
+  - Texans
+  - Titans
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  ordered: no
+PLAYER_FIRST:
+  class: factor
+  labels:
+  - Adoree
+  - Charles
+  - Christian
+  - Corey
+  - David
+  - Derek
+  - Deshaun
+  - Evan
+  - Gareon
+  - Garett
+  - Haason
+  - Jabrill
+  - Jamal
+  - Jarrad
+  - John
+  - Jonathan
+  - Leonard
+  - Malik
+  - Marlon
+  - Marshon
+  - Mike
+  - Mitch
+  - Myles
+  - OJ
+  - Patrick
+  - Reuben
+  - Ryan
+  - Solomon
+  - Taco
+  - Takkarist
+  - TJ
+  - TreDavious
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  ordered: no
+PLAYER_LAST:
+  class: factor
+  labels:
+  - Adams
+  - Allen
+  - Barnett
+  - Bolles
+  - Charlton
+  - Conley
+  - Davis
+  - Engram
+  - Foster
+  - Fournette
+  - Garrett
+  - Harris
+  - Hooker
+  - Howard
+  - Humphrey
+  - Jackson
+  - Lattimore
+  - Mahomes
+  - McCaffrey
+  - McKinley
+  - Njoku
+  - Peppers
+  - Ramczyk
+  - Reddick
+  - Ross
+  - Thomas
+  - Trubisky
+  - Watson
+  - Watt
+  - White
+  - Williams
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  ordered: no
+POSITION:
+  class: factor
+  labels:
+  - CB
+  - DE
+  - LB
+  - QB
+  - RB
+  - S
+  - T
+  - TE
+  - WR
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  ordered: no
+COLLEGE:
+  class: factor
+  labels:
+  - Alabama
+  - Clemson
+  - Florida
+  - LSU
+  - Miami
+  - Michigan
+  - Mississippi
+  - Missouri
+  - North Carolina
+  - Ohio State
+  - Stanford
+  - Temple
+  - Tennessee
+  - Texas A&M
+  - Texas Tech
+  - UCLA
+  - USC
+  - Utah
+  - Washington
+  - Western Michigan
+  - Wisconsin
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  ordered: no
+SIDE:
+  class: factor
+  labels:
+  - DEF
+  - 'OFF'
+  index:
+  - 1
+  - 2
+  ordered: no
+SIDEN:
+  class: integer

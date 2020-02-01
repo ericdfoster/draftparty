@@ -1,0 +1,293 @@
+..generic:
+  git2rdata: 0.2.0
+  optimize: yes
+  NA string: NA
+  sorting: PICK
+  hash: 21fa29a5bc234f70c4fb89135c7f908be6ac4650
+  data_hash: 0192c77d0aae0a1ce5d911cf9174ea0a516bf203
+YEAR:
+  class: integer
+PICK:
+  class: integer
+TEAM:
+  class: factor
+  labels:
+  - 49ers
+  - Bears
+  - Bengals
+  - Bills
+  - Broncos
+  - Browns
+  - Bucs
+  - Cardinals
+  - Chargers
+  - Colts
+  - Cowboys
+  - Dolphins
+  - Falcons
+  - Giants
+  - Jaguars
+  - Jets
+  - Lions
+  - Packers
+  - Panthers
+  - Patriots
+  - Raiders
+  - Ravens
+  - Redskins
+  - Saints
+  - Seahawks
+  - Steelers
+  - Titans
+  - Vikings
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  ordered: no
+PLAYER_FIRST:
+  class: factor
+  labels:
+  - Baker
+  - Billy
+  - Bradley
+  - Calvin
+  - DaRon
+  - Denzel
+  - Derwin
+  - DJ
+  - Frank
+  - Hayden
+  - Isaiah
+  - Jaire
+  - Josh
+  - Kolton
+  - Lamar
+  - Leighton
+  - Marcus
+  - Mike
+  - Minkah
+  - Quenton
+  - Rashaad
+  - Rashaan
+  - Roquan
+  - Sam
+  - Saquon
+  - Sony
+  - Taven
+  - Terrell
+  - Tremaine
+  - Vita
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  ordered: no
+PLAYER_LAST:
+  class: factor
+  labels:
+  - Alexander
+  - Allen
+  - Barkley
+  - Bryan
+  - Chubb
+  - Darnold
+  - Davenport
+  - Edmunds
+  - Evans
+  - Fitzpatrick
+  - Hughes
+  - Hurst
+  - Jackson
+  - James
+  - Mayfield
+  - McGlinchey
+  - Michel
+  - Miller
+  - Moore
+  - Nelson
+  - Payne
+  - Penny
+  - Price
+  - Ragnow
+  - Ridley
+  - Rosen
+  - Smith
+  - VanderEsch
+  - Vea
+  - Ward
+  - Wynn
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  ordered: no
+POSITION:
+  class: factor
+  labels:
+  - C
+  - CB
+  - DE
+  - DT
+  - G
+  - LB
+  - QB
+  - RB
+  - S
+  - T
+  - TE
+  - WR
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  ordered: no
+COLLEGE:
+  class: factor
+  labels:
+  - Alabama
+  - Arkansas
+  - Boise State
+  - Florida
+  - Florida State
+  - Georgia
+  - Louisville
+  - Maryland
+  - North Carolina State
+  - Notre Dame
+  - Ohio State
+  - Oklahoma
+  - Penn St
+  - San Diego State
+  - South Carolina
+  - UCF
+  - UCLA
+  - USC
+  - UTSA
+  - Virginia Tech
+  - Washington
+  - Wyoming
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  ordered: no
+SIDE:
+  class: factor
+  labels:
+  - DEF
+  - 'OFF'
+  index:
+  - 1
+  - 2
+  ordered: no
+SIDEN:
+  class: integer
