@@ -9,7 +9,7 @@ library(here)
 ### SOURCE ###
 ##############
 
-here("Code", "setup.R")
+source(here("Code", "setup.R"))
 
 ######################
 ### USER INTERFACE ###
