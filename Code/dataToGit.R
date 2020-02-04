@@ -7,7 +7,8 @@
 ###                                                                                ###
 ### INPUTS:                                                                        ###
 ###                                                                                ###
-###    + fp.data - The filepath of the data that is about to be pushed to git.     ###
+###    + fp.data - Either the filepath of the data that is about to be pushed to   ###
+###                or the actual data.frame itself.                                ###
 ###                                                                                ###
 ###    + fp.git  - The relative filepath/filename to use when storing the data on  ###
 ###                git. For example, "/Data/GUESSES_XXXX".                         ###
@@ -41,7 +42,15 @@ dataToGit <- function(fp.data, fp.git, fp.repo = "", sortby){
   pull(repo = repo)
   
   ### READ IN THE DATASET ###
-  DAT_01 <- read.table(file = fp.data, header = TRUE, sep = ",")
+  if(typeof(fp.data) == "character"){
+    
+    DAT_01 <- read.table(file = fp.data, header = TRUE, sep = ",")
+    
+  }else if(typeof(fp.data = "list")){
+    
+    DAT_01 <- fp.data
+    
+  }
   
   ### WRITE TO THE REPOSITORY ###
   write_vc(x = DAT_01, file = fp.git, root = repo, sorting = sortby, stage = TRUE, strict = FALSE)
