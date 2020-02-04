@@ -45,14 +45,17 @@ updateEnvironmentDatasets <- function(action = "pull"){
       if(paste0("DRAFT_", a, ".tsv") %in% FILES_01){
         
         assign(x = paste0("DRAFT_", a),
-               value = dataFromGit(fp.git = paste0("/Data/DRAFT_", a)))
+               value = dataFromGit(fp.git = paste0("/Data/DRAFT_", a)),
+               envir = .GlobalEnv)
         assign(x = paste0("GUESSES_", a),
-               value = dataFromGit(fp.git = paste0("/Data/GUESSES_", a)))
+               value = dataFromGit(fp.git = paste0("/Data/GUESSES_", a)),
+               envir = .GlobalEnv)
         
       }
       
     }
-    assign(x = "PIRATES", value = dataFromGit(fp.git = "/Data/PIRATES"))
+    assign(x = "PIRATES", value = dataFromGit(fp.git = "/Data/PIRATES"),
+           envir = .GlobalEnv)
     
   }else if(tolower(action) == "push"){
     
