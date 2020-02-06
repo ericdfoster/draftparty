@@ -18,7 +18,8 @@
 
 library(tidyverse)
 library(git2rdata)
-require(here) # Technically, this call needs to be made within the app itself.
+library(DT)
+# require(here) # Technically, this call needs to be made within the app itself.
 
 ##############################
 ### USER-DEFINED FUNCTIONS ###
