@@ -55,7 +55,7 @@ server <- function(input, output) {
     
     output$pirates <- DT::renderDataTable({
         
-        DT::datatable(PIRATES)
+        DT::datatable(PIRATES, options = list("pageLength" = 20))
         
     })
 
