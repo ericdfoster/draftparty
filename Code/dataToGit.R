@@ -46,7 +46,7 @@ dataToGit <- function(fp.data, fp.git, fp.repo = "", sortby){
     
     DAT_01 <- read.table(file = fp.data, header = TRUE, sep = ",")
     
-  }else if(typeof(fp.data) = "list"){
+  }else if(typeof(fp.data) == "list"){
     
     DAT_01 <- fp.data
     
