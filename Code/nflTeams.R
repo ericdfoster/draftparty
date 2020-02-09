@@ -49,6 +49,6 @@ nflTeams <- function(){
                                  "Seahawks",
                                  "Buccaneers",
                                  "Titans",
-                                 "Redskins")))
+                                 "Redskins")) %>% arrange(TEAMNAME))
   
 }
