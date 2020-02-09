@@ -41,12 +41,18 @@ updateEnvironmentDatasets <- function(action = "pull"){
                                     x = FILES_01)), na.rm = TRUE)
     for(a in YEAR_MIN:YEAR_MAX){
       
-      ### CHECK THAT A DRAFTPARTY EXISTED DURING THIS YEAR ###
+      ### CHECK THAT A DRAFT WAS RECORDED DURING THIS YEAR ###
       if(paste0("DRAFT_", a, ".tsv") %in% FILES_01){
         
         assign(x = paste0("DRAFT_", a),
                value = dataFromGit(fp.git = paste0("/Data/DRAFT_", a)),
                envir = .GlobalEnv)
+        
+      }
+      
+      ### CHECK THAT GUESSES WERE RECORDED DURING THIS YEAR ###
+      if(paste0("GUESSES_", a, ".tsv") %in% FILES_01){
+        
         assign(x = paste0("GUESSES_", a),
                value = dataFromGit(fp.git = paste0("/Data/GUESSES_", a)),
                envir = .GlobalEnv)
