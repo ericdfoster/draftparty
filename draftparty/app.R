@@ -16,6 +16,13 @@ source(here("Code", "setup.R"))
 ######################
 
 ui <- fluidPage(
+    
+    ### ADJUST FORMATTING ###
+    tags$head(
+        
+        tags$style(HTML("hr {border-top: 1px solid #000000;}"))
+        
+    ),
 
     ### TITLE ###
     titlePanel(paste0(format(Sys.Date(), "%Y"), " NFL DRAFT PARTY")),
