@@ -37,6 +37,8 @@ ui <- fluidPage(
                                      choices = c(2017:as.numeric(format(Sys.Date(), "%Y")))[unlist(lapply(X = 2017:as.numeric(format(Sys.Date(), "%Y")), FUN = function(x){ exists(paste0("DRAFT_", x)) }))],
                                      selected = as.numeric(format(Sys.Date(), "%Y"))),
                          
+                         hr(),
+                         
                          selectInput(inputId = "DRAFT_PICK",
                                      label = "Pick Number:",
                                      choices = get(paste0("DRAFT_",
@@ -76,6 +78,8 @@ ui <- fluidPage(
                 
                 id = "mainscreens",
                 
+                tabPanel("Draft Results", DT::dataTableOutput(outputId = "DRAFT_RESULTS")),
+                
                 tabPanel("Pirates", DT::dataTableOutput(outputId = "PIRATES"))
                 
             )
@@ -95,6 +99,12 @@ server <- function(input, output) {
     output$PIRATES <- DT::renderDataTable({
         
         DT::datatable(PIRATES, options = list("pageLength" = 20))
+        
+    })
+    
+    output$DRAFT_RESULTS <- DT::renderDataTable({
+        
+        DT::datatable(get(x = paste0("DRAFT_", input$DRAFT_YEAR)), options = list("pageLength" = 32))
         
     })
 
