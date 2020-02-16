@@ -35,18 +35,18 @@ lapply(X = FP_01, FUN = function(x){ source(here::here("Code", x)) })
 
 updateEnvironmentDatasets(action = "pull")
 if(!any(list.files(path = here::here("Data"), recursive = TRUE) == 
-        paste0("DRAFT_", format(Sys.Date(), "%Y")))){
+        paste0("DRAFT_", format(Sys.Date(), "%Y"), ".tsv"))){
   
   assign(x = paste0("DRAFT_", format(Sys.Date(), "%Y")),
-         value = data.frame(YEAR = rep(as.numeric(format(Sys.Date(), "%Y")), 32),
-                            PICK = 1:32,
-                            TEAM = rep("", 32),
-                            PLAYER_FIRST = rep("", 32),
-                            PLAYER_LAST = rep("", 32),
-                            POSITION = rep("", 32),
-                            COLLEGE = rep("", 32),
-                            SIDE = rep("", 32),
-                            SIDEN = rep("", 32)))
+         value = tibble(YEAR = rep(as.numeric(format(Sys.Date(), "%Y")), 32),
+                        PICK = 1:32,
+                        TEAM = rep("", 32),
+                        PLAYER_FIRST = rep("", 32),
+                        PLAYER_LAST = rep("", 32),
+                        POSITION = rep("", 32),
+                        COLLEGE = rep("", 32),
+                        SIDE = rep("", 32),
+                        SIDEN = as.numeric(rep(NA, 32))))
   updateEnvironmentDatasets(action = "push")
   
 }
