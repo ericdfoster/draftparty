@@ -166,7 +166,7 @@ server <- function(input, output) {
         if(input$DRAFT_YEAR == format(Sys.Date(), "%Y")){
             
             # PRESENT GUESS RESULTS #
-            DT::datatable(arrange(values$DF_GUESS_RESULTS, GUESSID, PIRATEID), options = list("pageLength" = 100))
+            DT::datatable(arrange(values$DF_GUESS_RESULTS, desc(GUESSID), PIRATEID), options = list("pageLength" = 100))
             
         }else{
             
