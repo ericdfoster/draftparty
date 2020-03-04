@@ -61,5 +61,6 @@ if(!any(list.files(path = here::here("Data"), recursive = TRUE) ==
                         GUESSID = numeric(),
                         GUESS = character(),
                         GUESSN = numeric()))
+  updateEnvironmentDatasets(action = "push")
   
 }
