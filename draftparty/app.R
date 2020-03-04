@@ -130,7 +130,8 @@ server <- function(input, output) {
     
     ### PLACE HOLDERS FOR REACTIVE OUTPUT ###
     
-    values <- reactiveValues(DF_DRAFT_RESULTS = get(x = paste0("DRAFT_", format(Sys.Date(), "%Y"))))
+    values <- reactiveValues(DF_DRAFT_RESULTS = get(x = paste0("DRAFT_", format(Sys.Date(), "%Y"))),
+                             DF_GUESS_RESULTS = get(x = paste0("GUESSES_", format(Sys.Date(), "%Y"))))
     
 
     ### DIRECTLY MODIFY THE OUTPUT LIST ###
@@ -157,6 +158,23 @@ server <- function(input, output) {
             
         }
         
+    })
+    
+    # BOTH PAST AND PRESENT GUESS RESULTS #
+    output$GUESS_RESULTS <- DT::renderDataTable({
+        
+        if(input$DRAFT_YEAR == format(Sys.Date(), "%Y")){
+            
+            # PRESENT GUESS RESULTS #
+            DT::datatable(arrange(values$DF_GUESS_RESULTS, GUESSID, PIRATEID), options = list("pageLength" = 100))
+            
+        }else{
+            
+            # PAST GUESS RESULTS #
+            DT::datatable(arrange(get(x = paste0("GUESSES_", input$DRAFT_YEAR)), GUESSID, PIRATEID), options = list("pageLength" = 100))
+            
+        }
+
     })
     
     ### EVENT OBSERVATIONS ###
