@@ -73,6 +73,19 @@ ui <- fluidPage(
                          
                          ),
                 
+                tabPanel(title = paste0(format(Sys.Date(), "%Y"), " Guesses"),
+                         
+                         uiOutput(outputId = "GUESS_GUESSES"),
+                         
+                         hr(),
+                         
+                         selectInput(inputId = "GUESS_PIRATES",
+                                     label = "Who is playing?",
+                                     choices = PIRATES$PIRATE,
+                                     multiple = TRUE)
+                         
+                         ),
+                
                 tabPanel(title = "Change View",
                          
                          selectInput(inputId = "DRAFT_YEAR",
@@ -119,6 +132,7 @@ server <- function(input, output) {
 
     ### DIRECTLY MODIFY THE OUTPUT LIST ###
     
+    # OUR MERRY BAND OF PIRATES #
     output$PIRATES <- DT::renderDataTable({
         
         DT::datatable(PIRATES, options = list("pageLength" = 20))
@@ -167,6 +181,29 @@ server <- function(input, output) {
         # ...IN THE LOCAL GIT REPOSITORY #
         # NOTE: A MANUAL COMMIT/PUSH IS NEEDED TO SAVE TO THE GLOBAL GIT REPOSITORY #
         updateEnvironmentDatasets(action = "push")
+        
+    })
+    
+    ### RENDER UI FROM THE SERVER-SIDE ###
+    
+    output$GUESS_GUESSES <- renderUI(expr = {
+        
+        TEMP_01 <- list(hr())
+        
+        if(!is.null(input$GUESS_PIRATES)){
+            
+            TEMP_01 <- lapply(X = 1:length(input$GUESS_PIRATES),
+                              FUN = function(x){
+                                  
+                                  selectInput(inputId = input$GUESS_PIRATES[x],
+                                              label = paste0(input$GUESS_PIRATES[x], "'s Guess:"),
+                                              choices = c("OFF", "DEF", " "))
+                                  
+                              })
+            
+        }
+        
+        TEMP_01
         
     })
 
