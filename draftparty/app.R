@@ -59,14 +59,14 @@ ui <- fluidPage(
                          
                          selectInput(inputId = "DRAFT_POSITION",
                                      label = "Player Position:",
-                                     choices = c("C", "CB", "DE", "DT", "G", "K", "LB", "P", "QB", "RB", "S", "T", "TE", "WR")),
+                                     choices = c(" ", "C", "CB", "DE", "DT", "G", "K", "LB", "P", "QB", "RB", "S", "T", "TE", "WR")),
                          
                          textInput(inputId = "DRAFT_COLLEGE",
                                    label = "Player College:"),
                          
                          selectInput(inputId = "DRAFT_SIDE",
                                      label = "OFF or DEF:",
-                                     choices = c("OFF", "DEF")),
+                                     choices = c("OFF", "DEF", " ")),
                          
                          actionButton(inputId = "DRAFT_PUSH",
                                       label = "Update Draft")
@@ -157,7 +157,7 @@ server <- function(input, output) {
         TEMP_01$POSITION[as.numeric(input$DRAFT_PICK)] <- input$DRAFT_POSITION
         TEMP_01$COLLEGE[as.numeric(input$DRAFT_PICK)] <- input$DRAFT_COLLEGE
         TEMP_01$SIDE[as.numeric(input$DRAFT_PICK)] <- input$DRAFT_SIDE
-        TEMP_01$SIDEN[as.numeric(input$DRAFT_PICK)] <- ifelse(input$DRAFT_SIDE == "DEF", 1, 0)
+        TEMP_01$SIDEN[as.numeric(input$DRAFT_PICK)] <- ifelse(input$DRAFT_SIDE == "DEF", 1, ifelse(input$DRAFT_SIDE == "OFF", 0, NA))
         
         # OVERWRITE THE OLD DRAFT RESULTS WITH THE UPDATED DRAFT RESULTS #
         # ...IN THE APPLICATION #
