@@ -110,6 +110,8 @@ ui <- fluidPage(
                 
                 tabPanel("Draft Results", DT::dataTableOutput(outputId = "DRAFT_RESULTS")),
                 
+                tabPanel("Guesses", DT::dataTableOutput(outputId = "GUESS_RESULTS")),
+                
                 tabPanel("Pirates", DT::dataTableOutput(outputId = "PIRATES"))
                 
             )
@@ -129,6 +131,7 @@ server <- function(input, output) {
     ### PLACE HOLDERS FOR REACTIVE OUTPUT ###
     
     values <- reactiveValues(DF_DRAFT_RESULTS = get(x = paste0("DRAFT_", format(Sys.Date(), "%Y"))))
+    
 
     ### DIRECTLY MODIFY THE OUTPUT LIST ###
     
@@ -144,12 +147,12 @@ server <- function(input, output) {
         
         if(input$DRAFT_YEAR == format(Sys.Date(), "%Y")){
             
-            # PAST DRAFT RESULTS #
+            # PRESENT DRAFT RESULTS #
             DT::datatable(values$DF_DRAFT_RESULTS, options = list("pageLength" = 32))
             
         }else{
             
-            # PRESENT DRAFT RESULTS #
+            # PAST DRAFT RESULTS #
             DT::datatable(get(x = paste0("DRAFT_", input$DRAFT_YEAR)), options = list("pageLength" = 32))
             
         }
