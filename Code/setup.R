@@ -50,3 +50,16 @@ if(!any(list.files(path = here::here("Data"), recursive = TRUE) ==
   updateEnvironmentDatasets(action = "push")
   
 }
+if(!any(list.files(path = here::here("Data"), recursive = TRUE) ==
+        paste0("GUESSES_", format(Sys.Date(), "%Y"), ".tsv"))){
+  
+  assign(x = paste0("GUESSES_", format(Sys.Date(), "%Y")),
+         value = tibble(PIRATE = character(),
+                        PIRATEID = numeric(),
+                        YEAR = numeric(),
+                        PICK = numeric(),
+                        GUESSID = numeric(),
+                        GUESS = character(),
+                        GUESSN = numeric()))
+  
+}
