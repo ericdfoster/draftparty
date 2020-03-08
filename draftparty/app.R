@@ -75,7 +75,18 @@ ui <- fluidPage(
                 
                 tabPanel(title = paste0(format(Sys.Date(), "%Y"), " Guesses"),
                          
+                         selectInput(inputId = "GUESS_PICK",
+                                     label = "Pick Number:",
+                                     choices = get(paste0("DRAFT_",
+                                                          format(Sys.Date(), "%Y")))$PICK,
+                                     selected = 1),
+                         
+                         hr(),
+                         
                          uiOutput(outputId = "GUESS_GUESSES"),
+                         
+                         actionButton(inputId = "GUESS_PUSH",
+                                      label = "Update Guesses"),
                          
                          hr(),
                          
@@ -166,7 +177,7 @@ server <- function(input, output) {
         if(input$DRAFT_YEAR == format(Sys.Date(), "%Y")){
             
             # PRESENT GUESS RESULTS #
-            DT::datatable(arrange(values$DF_GUESS_RESULTS, desc(GUESSID), PIRATEID), options = list("pageLength" = 100))
+            DT::datatable(arrange(values$DF_GUESS_RESULTS, desc(PICK), PIRATEID), options = list("pageLength" = 100))
             
         }else{
             
@@ -199,6 +210,58 @@ server <- function(input, output) {
         values$DF_DRAFT_RESULTS <- TEMP_01
         # ...IN THE GLOBAL ENVIRONMENT #
         assign(x = paste0("DRAFT_", format(Sys.Date(), "%Y")), value = TEMP_01, envir = .GlobalEnv)
+        # ...IN THE LOCAL GIT REPOSITORY #
+        # NOTE: A MANUAL COMMIT/PUSH IS NEEDED TO SAVE TO THE GLOBAL GIT REPOSITORY #
+        updateEnvironmentDatasets(action = "push")
+        
+    })
+    
+    # BUTTON TO RECORD GUESSES HAS BEEN PRESSED #
+    observeEvent(eventExpr = input$GUESS_PUSH, handlerExpr = {
+        
+        # GET THE PRESENT GUESSES #
+        TEMP_01 <- values$DF_GUESS_RESULTS
+        
+        # RECORD THE GUESSES #
+        if(!is.null(input$GUESS_PIRATES)){
+            
+            TEMP_02 <- tibble(PIRATE = input$GUESS_PIRATES,
+                              PIRATEID = PIRATES$PIRATEID[match(input$GUESS_PIRATES, PIRATES$PIRATE)],
+                              YEAR = as.numeric(rep(format(Sys.Date(), "%Y"), length(input$GUESS_PIRATES))),
+                              PICK = as.numeric(rep(input$GUESS_PICK, length(input$GUESS_PIRATES))),
+                              GUESSID = unlist(lapply(X = 1:length(input$GUESS_PIRATES),
+                                                      FUN = function(x){ nrow(TEMP_01[TEMP_01$PIRATE == input$GUESS_PIRATES[x], ]) + 1 })),
+                              GUESS = unlist(lapply(X = 1:length(input$GUESS_PIRATES),
+                                                    FUN = function(x){ input[[input$GUESS_PIRATES[x]]] })),
+                              GUESSN = unlist(lapply(X = 1:length(input$GUESS_PIRATES),
+                                                     FUN = function(x){
+                                                         
+                                                         ifelse(input[[input$GUESS_PIRATES[x]]] == "DEF",
+                                                                1,
+                                                                ifelse(input[[input$GUESS_PIRATES[x]]] == "OFF",
+                                                                       0,
+                                                                       NA))
+                                                         
+                                                     })))
+            
+        }else{
+            
+            # CREATE AN EMPTY GUESSES TIBBLE FOR THE NEW GUESSES #
+            TEMP_02 <- tibble(PIRATE = character(),
+                              PIRATEID = numeric(),
+                              YEAR = numeric(),
+                              PICK = numeric(),
+                              GUESSID = numeric(),
+                              GUESS = character(),
+                              GUESSN = numeric())
+            
+        }
+        
+        # OVERWRITE THE OLD GUESSES WITH THE UPDATED GUESSES #
+        # ...IN THE APPLICATION #
+        values$DF_GUESS_RESULTS <- bind_rows(TEMP_01, TEMP_02)
+        # ...IN THE GLOBAL ENVIRONMENT #
+        assign(x = paste0("GUESSES_", format(Sys.Date(), "%Y")), value = bind_rows(TEMP_01, TEMP_02), envir = .GlobalEnv)
         # ...IN THE LOCAL GIT REPOSITORY #
         # NOTE: A MANUAL COMMIT/PUSH IS NEEDED TO SAVE TO THE GLOBAL GIT REPOSITORY #
         updateEnvironmentDatasets(action = "push")
